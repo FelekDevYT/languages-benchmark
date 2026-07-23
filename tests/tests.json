@@ -2,7 +2,7 @@
   "languages": [
     {
       "name": "Java",
-      "install": "apt install openjdk-21jdk",
+      "install": "sudo apt install openjdk-21jdk",
       "folder": "java",
       "compile": [
         "javac $FMain.java -d $BF"
@@ -13,7 +13,7 @@
     },
     {
       "name": "Python",
-      "install": "apt install python3",
+      "install": "sudo apt install python3",
       "folder": "python",
       "compile": [],
       "run": [
@@ -22,7 +22,7 @@
     },
       {
         "name": "Rust",
-        "install": "apt install rustc",
+        "install": "sudo apt install rustc",
         "folder": "rust",
         "compile": [
           "rustc $Fmain.rs -o $BFmain"
