@@ -48,6 +48,7 @@ public class Main {
 
             System.out.println(avg);
         } else if (args[0].equals("--execute") || args[0].equals("-e")) {
+            CommandUtils.getCommandExecutionMillis("sudo apt update");
             ObjectMapper mapper = new ObjectMapper();
             mapper.registerModule(new JavaTimeModule());
 

@@ -33,10 +33,10 @@
     },
     {
       "name": "D",
-      "install": "sudo apt install -y ldc",
+      "install": "sudo apt install -y gdc",
       "folder": "d",
       "compile": [
-        "ldc $Fmain.d -O3 -release -boundscheck=off -mcpu=native -flto=full -enable-inlining -of$BFmain"
+        "gdc $Fmain.d -O3 -march=native -flto -fomit-frame-pointer -funroll-loops -pipe -o $BFmain"
       ],
       "run": [
         "./$BFmain"
@@ -47,7 +47,7 @@
       "install": "sudo apt install -y gcc",
       "folder": "c",
       "compile": [
-        "gcc $Fmain.c -O3 -march=native -flto -fomit-frame-pointer -funroll-loops -ffast-math -fno-stack-protector -pipe -o $BFmain"
+        "gdc $Fmain.d -O3 -march=native -flto -fomit-frame-pointer -funroll-loops -frelease -fbounds-check=off -pipe -o $BFmain"
       ],
       "run": [
         "./$BFmain"

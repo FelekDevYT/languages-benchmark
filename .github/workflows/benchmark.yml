@@ -54,7 +54,7 @@ jobs:
       - name: Combine results
         run: |
           find all-results -name "output_*.json" -exec cp {} . \;
-          java -jar PhoenixTest-1.0-SNAPSHOT.jar --combine 9 > summary.txt
+          java -jar PhoenixTest-1.0-SNAPSHOT.jar --combine 4 > summary.txt
       - name: Upload summary
         uses: actions/upload-artifact@v4
         with:
