@@ -20,16 +20,48 @@
         "python $Fmain.py"
       ]
     },
-      {
-        "name": "Rust",
-        "install": "sudo apt install -y rustc",
-        "folder": "rust",
-        "compile": [
-          "rustc $Fmain.rs -o $BFmain"
-        ],
-        "run": [
-          "./$BFmain"
-        ]
-      }
+    {
+      "name": "Rust",
+      "install": "sudo apt install -y rustc",
+      "folder": "rust",
+      "compile": [
+        "rustc $Fmain.rs -C opt-level=3 -C lto=fat -C codegen-units=1 -C panic=abort -C target-cpu=native -o $BFmain"
+      ],
+      "run": [
+        "./$BFmain"
+      ]
+    },
+    {
+      "name": "D",
+      "install": "sudo apt install -y ldc2",
+      "folder": "d",
+      "compile": [
+        "ldc2 $Fmain.d -O3 -release -boundscheck=off -mcpu=native -flto=full -enable-inlining -of$BFmain"
+      ],
+      "run": [
+        "./$BFmain"
+      ]
+    },
+    {
+      "name": "C",
+      "install": "sudo apt install -y gcc",
+      "folder": "c",
+      "compile": [
+        "gcc $Fmain.c -O3 -march=native -flto -fomit-frame-pointer -funroll-loops -ffast-math -fno-stack-protector -pipe -o $BFmain"
+      ],
+      "run": [
+        "./$BFmain"
+      ]
+    },{
+      "name": "C++",
+      "install": "sudo apt install -y g++",
+      "folder": "cpp",
+      "compile": [
+        "g++ $Fmain.cpp -O3 -march=native -flto -fomit-frame-pointer -funroll-loops -ffast-math -fno-stack-protector -pipe -std=c++17 -o $BFmain"
+      ],
+      "run": [
+        "./$BFmain"
+      ]
+    }
   ]
 }
