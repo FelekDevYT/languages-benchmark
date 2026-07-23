@@ -43,16 +43,17 @@
       ]
     },
     {
-      "name": "C",
+      "name": "C(GCC)",
       "install": "sudo apt install -y gcc",
       "folder": "c",
       "compile": [
-        "gdc $Fmain.d -O3 -march=native -flto -fomit-frame-pointer -funroll-loops -frelease -fbounds-check=off -pipe -o $BFmain"
+        "gcc $Fmain.c -O3 -march=native -flto -fomit-frame-pointer -funroll-loops -ffast-math -fno-stack-protector -pipe -o $BFmain"
       ],
       "run": [
         "./$BFmain"
       ]
-    },{
+    },
+    {
       "name": "C++",
       "install": "sudo apt install -y g++",
       "folder": "cpp",
@@ -63,5 +64,6 @@
         "./$BFmain"
       ]
     }
+
   ]
 }
