@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 group = 'me.felek.fenix'
@@ -22,8 +23,10 @@ test {
     useJUnitPlatform()
 }
 
-jar {
+shadowJar {
     manifest {
         attributes 'Main-Class': 'me.felek.fenix.Main'
     }
+
+    archiveClassifier.set('')
 }
