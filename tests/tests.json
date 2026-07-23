@@ -2,7 +2,7 @@
   "languages": [
     {
       "name": "Java",
-      "install": "sudo apt install -y openjdk-21jdk",
+      "install": "sudo apt install -y openjdk-21-jdk",
       "folder": "java",
       "compile": [
         "javac $FMain.java -d $BF"
