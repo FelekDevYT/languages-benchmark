@@ -33,10 +33,10 @@
     },
     {
       "name": "D",
-      "install": "sudo apt install -y ldc2",
+      "install": "sudo apt install -y ldc",
       "folder": "d",
       "compile": [
-        "ldc2 $Fmain.d -O3 -release -boundscheck=off -mcpu=native -flto=full -enable-inlining -of$BFmain"
+        "ldc $Fmain.d -O3 -release -boundscheck=off -mcpu=native -flto=full -enable-inlining -of$BFmain"
       ],
       "run": [
         "./$BFmain"
