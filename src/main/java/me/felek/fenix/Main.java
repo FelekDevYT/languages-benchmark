@@ -88,6 +88,9 @@ public class Main {
                 for (var smth : runCmds) {
                     smth = smth.replaceAll("\\$BF", "bin" + "/" + test.folder + "/");
                     smth = smth.replaceAll("\\$F", "tests" + "/" + test.folder + "/");
+
+                    smth = smth.replaceAll("\\$N", "1000000");
+                    smth = smth.replaceAll("\\$M", "1000");
                     System.out.println("EXECUTING: " + smth);
                     milliTime += CommandUtils.getCommandExecutionMillis(smth);
                 }

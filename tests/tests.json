@@ -8,7 +8,7 @@
         "javac $FMain.java -d $BF"
       ],
       "run": [
-        "java -cp $BF Main"
+        "java -cp $BF Main $N $M"
       ]
     },
     {
@@ -17,7 +17,7 @@
       "folder": "python",
       "compile": [],
       "run": [
-        "python $Fmain.py"
+        "python $Fmain.py $N $M"
       ]
     },
     {
@@ -28,7 +28,7 @@
         "rustc $Fmain.rs -C opt-level=3 -C lto=fat -C codegen-units=1 -C panic=abort -C target-cpu=native -o $BFmain"
       ],
       "run": [
-        "./$BFmain"
+        "./$BFmain $N $M"
       ]
     },
     {
@@ -39,7 +39,7 @@
         "gdc $Fmain.d -O3 -march=native -flto -fomit-frame-pointer -funroll-loops -pipe -o $BFmain"
       ],
       "run": [
-        "./$BFmain"
+        "./$BFmain $N $M"
       ]
     },
     {
@@ -50,7 +50,7 @@
         "gcc $Fmain.c -O3 -march=native -flto -fomit-frame-pointer -funroll-loops -ffast-math -fno-stack-protector -pipe -o $BFmain"
       ],
       "run": [
-        "./$BFmain"
+        "./$BFmain $N $M"
       ]
     },
     {
@@ -61,7 +61,7 @@
         "g++ $Fmain.cpp -O3 -march=native -flto -fomit-frame-pointer -funroll-loops -ffast-math -fno-stack-protector -pipe -std=c++17 -o $BFmain"
       ],
       "run": [
-        "./$BFmain"
+        "./$BFmain $N $M"
       ]
     }
 

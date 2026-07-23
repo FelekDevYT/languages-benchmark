@@ -1,10 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int main() {
+int main(int argc, char *argv[]) {
     long long counter = 1;
-    for (int i = 1; i < 1000000; i++) {
-        for (int j = 1; j < 1000; j++) {
-            counter += i * j;
+    int N = atoi(argv[1]);
+    int M = atoi(argv[2]);
+
+    for (int i = 1; i < N; i++) {
+        for (int j = 1; j < M; j++) {
+            counter += (long long)i * j;
         }
     }
     printf("%lld\n", counter);
