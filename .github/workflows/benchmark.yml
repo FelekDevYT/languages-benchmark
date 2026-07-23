@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        run_id: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+        run_id: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     steps:
       - uses: actions/checkout@v4
       - name: Download JAR
@@ -31,12 +31,13 @@ jobs:
         with:
           name: app-jar
       - name: Run benchmark
-        run: java -jar app.jar --execute ${{ matrix.run_id }}
+        run: java -jar PhoenixTest-1.0-SNAPSHOT.jar --execute ${{ matrix.run_id }}
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
           name: output-${{ matrix.run_id }}
           path: output_${{ matrix.run_id }}.json
+
   aggregate:
     needs: run
     runs-on: ubuntu-latest
@@ -53,7 +54,7 @@ jobs:
       - name: Combine results
         run: |
           find all-results -name "output_*.json" -exec cp {} . \;
-          java -jar app.jar --combine 9 > summary.txt
+          java -jar PhoenixTest-1.0-SNAPSHOT.jar --combine 9 > summary.txt
       - name: Upload summary
         uses: actions/upload-artifact@v4
         with:
