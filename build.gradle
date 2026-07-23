@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 group = 'me.felek.fenix'
@@ -23,10 +22,13 @@ test {
     useJUnitPlatform()
 }
 
-shadowJar {
+jar {
     manifest {
         attributes 'Main-Class': 'me.felek.fenix.Main'
     }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 
-    archiveClassifier.set('')
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
