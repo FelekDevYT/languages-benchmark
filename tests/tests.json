@@ -83,7 +83,7 @@
       ]
     },
     {
-      "install": "curl -L https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz | sudo tar xJ -C /usr/local && sudo ln -sf /usr/local/zig/zig /usr/local/bin/zig",
+      "install": "curl -L https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz | sudo tar xJ -C /usr/local && sudo mv /usr/local/zig-linux-x86_64-0.13.0 /usr/local/zig && sudo ln -sf /usr/local/zig/zig /usr/local/bin/zig",
       "folder": "zig",
       "compile": [
         "zig build-exe $Fmain.zig -O ReleaseFast -femit-bin=$BFmain"
