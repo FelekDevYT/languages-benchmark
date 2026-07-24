@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-    long long counter = 1;
+    volatile long long counter = 1;
     int N = atoi(argv[1]);
     int M = atoi(argv[2]);
 

@@ -13,6 +13,7 @@ pub fn main() !void {
         var j: i64 = 1;
         while (j < M) : (j += 1) {
             counter += i * j;
+            @as(*volatile i64, @ptrCast(&counter)).* = counter;
         }
     }
 

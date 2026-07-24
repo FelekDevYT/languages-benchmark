@@ -125,6 +125,33 @@
       "run": [
         "./$BFmain $N $M"
       ]
+    },
+    {
+      "name": "JavaScript",
+      "install": "sudo apt install -y nodejs",
+      "folder": "javascript",
+      "compile": [],
+      "run": [
+        "node $Fmain.js $N $M"
+      ]
+    },
+    {
+      "name": "Lua",
+      "install": "sudo apt install -y lua5.4 && sudo ln -sf /usr/bin/lua5.4 /usr/local/bin/lua",
+      "compile": [],
+      "run": [
+        "lua $Fmain.lua $N $M"
+      ]
+    },
+    {
+      "name": "Swift",
+      "install": "curl -L https://download.swift.org/swift-5.10-release/ubuntu2204/swift-5.10-RELEASE/swift-5.10-RELEASE-ubuntu22.04.tar.gz | sudo tar xz -C /usr/local && sudo ln -sf /usr/local/swift-5.10-RELEASE-ubuntu22.04/usr/bin/swift /usr/local/bin/swift",
+      "compile": [
+        "swiftc -O3 $Fmain.swift -o $BFmain"
+      ],
+      "run": [
+        "./$BFmain $N $M"
+      ]
     }
   ]
 }
