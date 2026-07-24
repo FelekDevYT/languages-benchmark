@@ -4,3 +4,4 @@ rustc
 gdc
 gcc
 g++
+clang

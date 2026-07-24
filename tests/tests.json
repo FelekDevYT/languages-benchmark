@@ -63,7 +63,68 @@
       "run": [
         "./$BFmain $N $M"
       ]
+    },
+    {
+      "name": "Julia",
+      "install": "sudo apt install -y julia",
+      "folder": "julia",
+      "compile": [],
+      "run": [
+        "julia $Fmain.jl $N $M"
+      ]
+    },
+    {
+      "name": "R",
+      "install": "sudo apt install -y r-base",
+      "folder": "r",
+      "compile": [],
+      "run": [
+        "Rscript $Fmain.R $N $M"
+      ]
+    },
+    {
+      "name": "Zig",
+      "install": "sudo apt install -y zig",
+      "folder": "zig",
+      "compile": [
+        "zig build-exe $Fmain.zig -O ReleaseFast -femit-bin=$BFmain"
+      ],
+      "run": [
+        "./$BFmain $N $M"
+      ]
+    },
+    {
+      "name": "Nim",
+      "install": "sudo apt install -y nim",
+      "folder": "nim",
+      "compile": [
+        "nim compile --opt:fast -o:$BFmain $Fmain.nim"
+      ],
+      "run": [
+        "./$BFmain $N $M"
+      ]
+    },
+    {
+      "name": "Crystal",
+      "install": "sudo apt install -y crystal",
+      "folder": "crystal",
+      "compile": [
+        "crystal build $Fmain.cr -o $BFmain --release --no-debug"
+      ],
+      "run": [
+        "./$BFmain $N $M"
+      ]
+    },
+    {
+      "name": "C(Clang)",
+      "install": "sudo apt install -y clang",
+      "folder": "clang",
+      "compile": [
+        "clang $Fmain.c -O3 -march=native -flto -fomit-frame-pointer -funroll-loops -ffast-math -fno-stack-protector -pipe -o $BFmain"
+      ],
+      "run": [
+        "./$BFmain $N $M"
+      ]
     }
-
   ]
 }

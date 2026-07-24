@@ -1,4 +1,5 @@
 use std::env;
+use std::hint::black_box;
 
 fn main() {
     let mut counter: i64 = 1;
@@ -8,7 +9,7 @@ fn main() {
 
     for i in 1..n {
         for j in 1..m {
-            counter += i * j;
+            counter += black_box(i * j);
         }
     }
     println!("{}", counter);
