@@ -137,6 +137,7 @@
     },
     {
       "name": "Lua",
+      "folder": "lua",
       "install": "sudo apt install -y lua5.4 && sudo ln -sf /usr/bin/lua5.4 /usr/local/bin/lua",
       "compile": [],
       "run": [
@@ -145,6 +146,7 @@
     },
     {
       "name": "Swift",
+      "folder": "swift",
       "install": "curl -L https://download.swift.org/swift-5.10-release/ubuntu2204/swift-5.10-RELEASE/swift-5.10-RELEASE-ubuntu22.04.tar.gz | sudo tar xz -C /usr/local && sudo ln -sf /usr/local/swift-5.10-RELEASE-ubuntu22.04/usr/bin/swift /usr/local/bin/swift",
       "compile": [
         "swiftc -O $Fmain.swift -o $BFmain"
