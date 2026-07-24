@@ -9,6 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
       - name: Make gradlew executable
         run: chmod +x gradlew
       - name: Build testing jar
@@ -18,6 +23,7 @@ jobs:
         with:
           name: app-jar
           path: build/libs/PhoenixTest-1.0-SNAPSHOT.jar
+
   run:
     needs: build
     runs-on: ubuntu-latest
@@ -26,6 +32,26 @@ jobs:
         run_id: [0, 1, 2, 3, 4]
     steps:
       - uses: actions/checkout@v4
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+      - name: Extract packages from tests.json
+        id: extract
+        run: |
+          PACKAGES=$(jq -r '.languages[].install | capture("apt install -y (?<pkg>.*)") | .pkg' tests.json | sort -u | tr '\n' ' ')
+          echo "packages=$PACKAGES" >> $GITHUB_OUTPUT
+      - name: Cache APT packages
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt/archives
+          key: ${{ runner.os }}-apt-${{ hashFiles('tests.json') }}
+          restore-keys: ${{ runner.os }}-apt-
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ${{ steps.extract.outputs.packages }}
       - name: Download JAR
         uses: actions/download-artifact@v4
         with:
@@ -43,6 +69,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
       - name: Download JAR
         uses: actions/download-artifact@v4
         with:
