@@ -97,8 +97,8 @@
       "install": "sudo apt install -y nim",
       "folder": "nim",
       "compile": [
-        "nim compile --opt:fast -o:$BFmain $Fmain.nim"
-      ],
+        "nim compile -d:release -o:$BFmain $Fmain.nim"
+      ]
       "run": [
         "./$BFmain $N $M"
       ]
