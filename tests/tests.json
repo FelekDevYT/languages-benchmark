@@ -154,6 +154,37 @@
       "run": [
         "./$BFmain $N $M"
       ]
+    },
+    {
+      "name": "Go",
+      "install": "sudo apt install -y golang-go",
+      "folder": "go",
+      "compile": [
+        "go build -o $BFmain $Fmain.go"
+      ],
+      "run": [
+        "./$BFmain $N $M"
+      ]
+    },
+    {
+      "name": "C#",
+      "install": "sudo apt install -y dotnet-sdk-8.0",
+      "folder": "csharp",
+      "compile": [
+        "csc -optimize+ -out:$BFmain.exe Main.cs"
+      ],
+      "run": [
+        "dotnet $BFmain.exe $N $M"
+      ]
+    },
+    {
+      "name": "Clojure",
+      "install": "sudo apt install -y clojure",
+      "folder": "clojure",
+      "compile": [],
+      "run": [
+        "clojure -M $Fmain.clj $N $M"
+      ]
     }
   ]
 }
