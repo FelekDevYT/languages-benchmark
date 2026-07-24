@@ -1,0 +1,130 @@
+{
+  "languages": [
+    {
+      "name": "Java",
+      "install": "sudo apt install -y openjdk-21-jdk",
+      "folder": "java",
+      "compile": [
+        "javac $FMain.java -d $BF"
+      ],
+      "run": [
+        "java -cp $BF Main $N $M"
+      ]
+    },
+    {
+      "name": "Python",
+      "install": "sudo apt install -y python3",
+      "folder": "python",
+      "compile": [],
+      "run": [
+        "python $Fmain.py $N $M"
+      ]
+    },
+    {
+      "name": "Rust",
+      "install": "sudo apt install -y rustc",
+      "folder": "rust",
+      "compile": [
+        "rustc $Fmain.rs -C opt-level=3 -C lto=fat -C codegen-units=1 -C panic=abort -C target-cpu=native -o $BFmain"
+      ],
+      "run": [
+        "./$BFmain $N $M"
+      ]
+    },
+    {
+      "name": "D",
+      "install": "sudo apt install -y gdc",
+      "folder": "d",
+      "compile": [
+        "gdc $Fmain.d -O3 -march=native -flto -fomit-frame-pointer -funroll-loops -pipe -o $BFmain"
+      ],
+      "run": [
+        "./$BFmain $N $M"
+      ]
+    },
+    {
+      "name": "C(GCC)",
+      "install": "sudo apt install -y gcc",
+      "folder": "c",
+      "compile": [
+        "gcc $Fmain.c -O3 -march=native -flto -fomit-frame-pointer -funroll-loops -ffast-math -fno-stack-protector -pipe -o $BFmain"
+      ],
+      "run": [
+        "./$BFmain $N $M"
+      ]
+    },
+    {
+      "name": "C++",
+      "install": "sudo apt install -y g++",
+      "folder": "cpp",
+      "compile": [
+        "g++ $Fmain.cpp -O3 -march=native -flto -fomit-frame-pointer -funroll-loops -ffast-math -fno-stack-protector -pipe -std=c++17 -o $BFmain"
+      ],
+      "run": [
+        "./$BFmain $N $M"
+      ]
+    },
+    {
+      "name": "Julia",
+      "install": "curl -L https://julialang-s3.julialang.org/bin/linux/x64/1.10/julia-1.10.5-linux-x86_64.tar.gz | sudo tar xz -C /usr/local && sudo ln -sf /usr/local/julia-1.10.5/bin/julia /usr/local/bin/julia",
+      "folder": "julia",
+      "compile": [],
+      "run": [
+        "julia $Fmain.jl $N $M"
+      ]
+    },
+    {
+      "name": "R",
+      "install": "sudo apt install -y r-base",
+      "folder": "r",
+      "compile": [],
+      "run": [
+        "Rscript $Fmain.R $N $M"
+      ]
+    },
+    {
+      "name": "Zig",
+      "install": "sudo apt install -y zig",
+      "folder": "zig",
+      "compile": [
+        "zig build-exe $Fmain.zig -O ReleaseFast -femit-bin=$BFmain"
+      ],
+      "run": [
+        "./$BFmain $N $M"
+      ]
+    },
+    {
+      "name": "Nim",
+      "install": "sudo apt install -y nim",
+      "folder": "nim",
+      "compile": [
+        "nim compile --opt:fast -o:$BFmain $Fmain.nim"
+      ],
+      "run": [
+        "./$BFmain $N $M"
+      ]
+    },
+    {
+      "name": "Crystal",
+      "install": "sudo apt install -y crystal",
+      "folder": "crystal",
+      "compile": [
+        "crystal build $Fmain.cr -o $BFmain --release --no-debug"
+      ],
+      "run": [
+        "./$BFmain $N $M"
+      ]
+    },
+    {
+      "name": "C(Clang)",
+      "install": "sudo apt install -y clang",
+      "folder": "clang",
+      "compile": [
+        "clang $Fmain.c -O3 -march=native -flto -fomit-frame-pointer -funroll-loops -ffast-math -fno-stack-protector -pipe -o $BFmain"
+      ],
+      "run": [
+        "./$BFmain $N $M"
+      ]
+    }
+  ]
+}
